@@ -7,8 +7,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.alibaba.fastjson.JSONObject;
 import com.mall.template.teacher.pojo.Teacher;
 import com.mall.template.teacher.service.ITeacherService;
+import com.mall.templte.basic.controller.AbstractBaseController;
+import com.mall.templte.basic.response.enums.BussinessCodeEnum;
+import com.mall.templte.basic.response.exception.BussinessException;
 import com.mall.templte.basic.response.helper.ResponseHelper;
 import com.mall.templte.basic.response.pojo.ResponseInfo;
 
@@ -17,14 +21,14 @@ import io.swagger.annotations.ApiOperation;
 
 @Api(tags="教师管理 restful sample")
 @RestController
-public class TeacherController {
+public class TeacherController extends AbstractBaseController{
 
 	@Autowired
 	private ITeacherService teacherService;
 
 	@ApiOperation(value = "teacher query", httpMethod = "GET", notes = "query teacher by teacher-id")
 	@RequestMapping(method = RequestMethod.GET, value = "/teacher-info/{teacherId}")
-	public ResponseInfo<Teacher> queryTeacher(@PathVariable("teacherId")long teacherId) throws Exception {
+	public ResponseInfo<?> queryTeacher(@PathVariable("teacherId")long teacherId) throws Exception {
 		return ResponseHelper
 				.productSuccessResponse(teacherService.queryTeacher(new Teacher().setTeacherIdSelfCall(teacherId)));
 	}
@@ -32,12 +36,16 @@ public class TeacherController {
 	@ApiOperation(value = "Teacher insert", httpMethod = "POST", notes = "insert Teacher")
 	@RequestMapping(method = RequestMethod.POST, value = "/teacher-info")
 	public ResponseInfo<?> insertTeacher(@Validated Teacher teacher) throws Exception {
+		if(teacher.getTeacherAge()>=150){
+			throw new BussinessException(BussinessCodeEnum.AGE_INVALID);
+		}
 		return ResponseHelper.productSuccessResponse(teacherService.saveTeacher(teacher));
 	}
 	
 	@ApiOperation(value = "Teacher delete", httpMethod = "DELETE", notes = "delete Teacher")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/teacher-info/{teacherId}")
 	public ResponseInfo<?> deleteTeacher(@PathVariable("teacherId") Teacher teacher) throws Exception {
+		logger.info("TeacherController.deleteTeacher 请求参数：" + JSONObject.toJSONString(teacher));
 		return ResponseHelper.productSuccessResponse(teacherService.saveTeacher(teacher));
 	}
 	
@@ -46,4 +54,6 @@ public class TeacherController {
 	public ResponseInfo<?> updateTeacher(@Validated Teacher teacher) throws Exception {
 		return ResponseHelper.productSuccessResponse(teacherService.updateTeacher(teacher));
 	}
+	
+	
 }
