@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<packaging>jar</packaging>
+	<parent>
+		<groupId>com.mall</groupId>
+		<artifactId>mall-template-sample</artifactId>
+		<version>${mall.template.verison}</version>
+	</parent>
+	<artifactId>mall-template-teacher</artifactId>
+	<name>mall-template-teacher</name>
+	<url>http://maven.apache.org</url>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>com.mall</groupId>
+			<artifactId>mall-template-basic</artifactId>
+			<version>${mall.template.verison}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.mall</groupId>
+			<artifactId>mall-template-mysql</artifactId>
+			<version>${mall.template.verison}</version>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<!-- 使用spring boot的maven插件进行打包 -->
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>build-info</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<!-- 是否打出可执行的jar包(仅支持Linux格式) -->
+					<executable>false</executable>
+				</configuration>
+			</plugin>
+			<!-- 将jar包和外部配置等文件整体打包(zip,tar,tar.gz等) -->
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<!--jar包名称 -->
+					<finalName>${project.artifactId}-${project.version}</finalName>
+					<outputDirectory>./dist</outputDirectory>
+				</configuration>
+				<executions>
+					<execution>
+						<id>full</id>
+						<!-- 绑定到package生命周期阶段上 -->
+						<phase>package</phase>
+						<goals>
+							<!-- 只运行一次 -->
+							<goal>single</goal>
+						</goals>
+						<configuration>
+							<!--描述文件路径 -->
+							<descriptor>src/main/assembly/assembly.xml</descriptor>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>
