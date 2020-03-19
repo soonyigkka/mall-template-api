@@ -34,4 +34,11 @@ public interface ITeacherService {
 	 */
 	public boolean updateTeacher(Teacher teacher);
 	
+	/**
+	 * 
+	 * @param classWork
+	 * @return
+	 */
+	public boolean classWork(String classWork);
+	
 }

@@ -15,5 +15,6 @@
   </properties>
   <modules>
     <module>mall-template-mysql</module>
+    <module>mall-template-kafka</module>
   </modules>
 </project>

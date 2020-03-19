@@ -55,5 +55,11 @@ public class TeacherController extends AbstractBaseController{
 		return ResponseHelper.productSuccessResponse(teacherService.updateTeacher(teacher));
 	}
 	
+	@ApiOperation(value = "class work", httpMethod = "POST", notes = "class work")
+	@RequestMapping(method = RequestMethod.POST, value = "/class-work")
+	public ResponseInfo<?> classWork(String classWork) throws Exception {
+		return ResponseHelper.productSuccessResponse(teacherService.classWork(classWork));
+	}
+	
 	
 }
