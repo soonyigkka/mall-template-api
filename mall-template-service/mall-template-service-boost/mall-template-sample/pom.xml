@@ -15,7 +15,6 @@
 	</properties>
 	<modules>
 		<module>mall-template-teacher</module>
-
-	<module></module>  <module>mall-template-student</module>
+		<module>mall-template-student</module>
   </modules>
 </project>
