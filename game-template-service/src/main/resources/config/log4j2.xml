@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+	<Properties>
+		<!-- 文件输出格式 -->
+		<property name="app-name">service-game</property>
+		<Property name="PATTERN">%d{yyyy-MM-dd HH:mm:ss.SSS} [${app-name}] [%-5level] %c{1} - %msg%n</Property>
+		<Property name="log-path">${env:LOG_HOME:-/applog/}${app-name}</Property>
+	</Properties>
+	<Appenders>
+		<RollingFile name="CollectingFile" fileName="${log-path}/trace.log"
+			filePattern="${log-path}/$${date:yyyy-MM}/logging-%d{MM-dd-yyyy}-%i.log.gz">
+			<PatternLayout pattern="${PATTERN}"/>
+			<SizeBasedTriggeringPolicy size="200MB"></SizeBasedTriggeringPolicy>
+			<DefaultRolloverStrategy max="2"></DefaultRolloverStrategy>
+		</RollingFile>
+		<Console name="CONSOLE" target="SYSTEM_OUT">
+			<PatternLayout pattern="${PATTERN}" />
+		</Console>
+	</Appenders>
+	<Loggers>
+		<!-- <logger name="com.light.springboot" level="debug" /> -->
+		<root level="info">
+			<AppenderRef ref="CollectingFile" />
+			<AppenderRef ref="CONSOLE" />
+		</root>
+	</Loggers>
+</configuration>
