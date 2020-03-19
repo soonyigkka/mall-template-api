@@ -7,7 +7,7 @@
 	<parent>
 		<groupId>com.mall</groupId>
 		<artifactId>mall-template-service-boost</artifactId>
-		<version>${mall.template.verison}</version>
+		<version>1.0.0</version>
 	</parent>
 	<artifactId>mall-template-service-eureka</artifactId>
 	<name>mall-template-service-eureka</name>

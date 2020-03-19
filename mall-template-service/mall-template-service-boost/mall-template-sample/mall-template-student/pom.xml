@@ -9,7 +9,7 @@
   </parent>
   <groupId>com.mall</groupId>
   <artifactId>mall-template-student</artifactId>
-  <version>${mall.template.verison}</version>
+  <version>1.0.0</version>
   <name>mall-template-student</name>
   <url>http://maven.apache.org</url>
   <properties>

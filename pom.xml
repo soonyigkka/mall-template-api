@@ -83,17 +83,26 @@
 		</dependency>
 	</dependencies>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<artifactId>maven-assembly-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
+<!-- 	<build> -->
+<!-- 		<plugins> -->
+<!-- 			<plugin> -->
+<!-- 				<groupId>org.springframework.boot</groupId> -->
+<!-- 				<artifactId>spring-boot-maven-plugin</artifactId> -->
+<!-- 			</plugin> -->
+<!-- 			<plugin> -->
+<!-- 				<artifactId>maven-assembly-plugin</artifactId> -->
+<!-- 			</plugin> -->
+<!-- 			<plugin> -->
+<!-- 				  <groupId>org.codehaus.mojo</groupId> -->
+<!-- 				  <artifactId>versions-maven-plugin</artifactId> -->
+<!-- 				  <configuration> -->
+<!-- 				   	<generateBackupPoms>false</generateBackupPoms> -->
+<!-- 				  </configuration> -->
+<!-- 			 </plugin> -->
+<!-- 		</plugins> -->
+<!-- 	</build> -->
+	
+	
   <modules>
     <module>mall-template-common</module>
     <module>mall-template-service</module>
