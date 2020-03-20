@@ -8,8 +8,8 @@
 		<artifactId>mall-template-service</artifactId>
 		<version>1.0.0</version>
 	</parent>
-	<artifactId>mall-template-service-bussiness</artifactId>
-	<name>mall-template-service-bussiness</name>
+	<artifactId>mall-template-service-boost</artifactId>
+	<name>mall-template-service-boost</name>
 	<url>http://maven.apache.org</url>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -31,6 +31,6 @@
 		</dependency>
 	</dependencies>
 	<modules>
-		<module>mall-template-sample</module>
+		<module>mall-template-service-eureka</module>
 	</modules>
 </project>

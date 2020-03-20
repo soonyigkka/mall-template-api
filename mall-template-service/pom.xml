@@ -16,5 +16,6 @@
   </properties>
   <modules>
     <module>mall-template-service-boost</module>
+    <module>mall-template-service-bussiness</module>
   </modules>
 </project>

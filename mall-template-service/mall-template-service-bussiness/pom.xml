@@ -9,14 +9,14 @@
 		<artifactId>mall-template-service</artifactId>
 		<version>1.0.0</version>
 	</parent>
-	<artifactId>mall-template-service-boost</artifactId>
-	<name>mall-template-service-boost</name>
+	<artifactId>mall-template-service-bussiness</artifactId>
+	<name>mall-template-service-bussiness</name>
 	<url>http://maven.apache.org</url>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<modules>
-		<module>mall-template-service-eureka</module>
+		<module>mall-template-sample</module>
 	</modules>
 	<dependencies>
 		<dependency>
