@@ -41,7 +41,7 @@ public class TeacherService implements ITeacherService {
 
 	@Override
 	public boolean classWork(String classWork) {
-		KafkaProducer.send(TEACHER_TOPIC_NAME, classWork);
+		KafkaProducer.send(TEACHER_TOPIC_NAME,classWork, classWork);
 		return true;
 	}
 

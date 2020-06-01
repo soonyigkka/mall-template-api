@@ -17,5 +17,6 @@
   	<module>mall-template-basic</module>
     <module>mall-template-mysql</module>
     <module>mall-template-kafka</module>
+    <module>mall-template-zookeeper</module>
   </modules>
 </project>
