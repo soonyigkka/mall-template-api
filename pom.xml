@@ -107,5 +107,6 @@
     <module>mall-template-common</module>
     <module>mall-template-service</module>
     <module>game-template-service</module>
+    <module>mall-template-test</module>
   </modules>
 </project>

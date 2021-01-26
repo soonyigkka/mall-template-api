@@ -32,5 +32,6 @@
 	</dependencies>
 	<modules>
 		<module>mall-template-service-eureka</module>
+		<module>mall-template-service-zuul</module>
 	</modules>
 </project>
